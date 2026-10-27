@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lua Nova: Cinzas e Ferrugem - Compêndio Integral & Ficha 3.1</title>
+  <title>Lua Nova: Cinzas e Ferrugem - Compêndio Integral 3.2</title>
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -42,29 +41,20 @@
         <span class="text-3xl">🌑</span>
         <div>
           <h1 class="text-xl font-bold font-serif text-gold-400 tracking-wider">LUA NOVA</h1>
-          <p class="text-xs text-gray-400 uppercase tracking-widest">Cinzas e Ferrugem • Compêndio Integral 3.1</p>
+          <p class="text-xs text-gray-400 uppercase tracking-widest">Cinzas e Ferrugem • Compêndio Integral 3.2</p>
         </div>
-      </div>
-      <div class="relative">
-        <input type="text" id="globalSearch" onkeyup="filterContent()" placeholder="🔍 Buscar no compêndio..." 
-               class="bg-ash-800 text-sm text-gray-200 pl-3 pr-8 py-1.5 rounded-lg border border-gray-700 focus:outline-none focus:border-gold-500 w-48 sm:w-64">
       </div>
     </div>
 
     <nav class="bg-ash-900 border-t border-gray-800 overflow-x-auto">
       <div class="max-w-7xl mx-auto px-4 flex space-x-1 py-2 text-sm whitespace-nowrap">
         <button onclick="switchTab('ficha')" id="tab-ficha" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gold-400 bg-ash-800 border border-gold-500/40">🛡️ Ficha</button>
-        <button onclick="switchTab('sumario')" id="tab-sumario" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">📜 Sumário & Intro</button>
+        <button onclick="switchTab('sumario')" id="tab-sumario" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">📜 Sumário</button>
         <button onclick="switchTab('calendario')" id="tab-calendario" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🗓️ Calendário</button>
-        <button onclick="switchTab('regras')" id="tab-regras" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🎲 Cap. 1: Regras</button>
-        <button onclick="switchTab('personagem')" id="tab-personagem" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">👤 Cap. 2: Raças & Patronos</button>
-        <button onclick="switchTab('vocoes')" id="tab-vocoes" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">⚔️ Cap. 3: Vocações</button>
-        <button onclick="switchTab('habilidades')" id="tab-habilidades" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">✨ Cap. 4 & 5: Habilidades & Magias</button>
-        <button onclick="switchTab('arsenal')" id="tab-arsenal" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">💰 Cap. 6: Economia & Arsenal</button>
-        <button onclick="switchTab('bestiario')" id="tab-bestiario" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🐉 Cap. 7: Bestiário</button>
-        <button onclick="switchTab('montarias')" id="tab-montarias" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🐎 Cap. 8: Montarias</button>
-        <button onclick="switchTab('sobrevivencia')" id="tab-sobrevivencia" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">⛺ Cap. 9 & 10: Alma</button>
-        <button onclick="switchTab('viagem')" id="tab-viagem" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🚂 Cap. 11: Viagem</button>
+        <button onclick="switchTab('regras')" id="tab-regras" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🎲 Regras</button>
+        <button onclick="switchTab('personagem')" id="tab-personagem" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">👤 Raças & Patronos</button>
+        <button onclick="switchTab('vocoes')" id="tab-vocoes" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">⚔️ Vocações</button>
+        <button onclick="switchTab('bestiario')" id="tab-bestiario" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🐉 Bestiário</button>
         <button onclick="switchTab('simulador')" id="tab-simulador" class="nav-tab px-3 py-1.5 rounded-md font-medium text-rust-400 hover:text-gold-400 hover:bg-ash-800 transition">🎰 Simulador 3D20</button>
       </div>
     </nav>
@@ -73,13 +63,13 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full space-y-12">
 
-    <!-- SEÇÃO: FICHA DE PERSONAGEM (ZERADA) -->
+    <!-- FICHA DE PERSONAGEM -->
     <section id="sec-ficha" class="chapter-section space-y-6">
       <div class="parchment-card rounded-xl p-6 space-y-6">
         <div class="flex flex-wrap justify-between items-center border-b border-gold-500/30 pb-4 gap-4">
           <div>
-            <h2 class="text-2xl font-serif font-bold text-gold-400">🛡️ Ficha de Personagem Integrada</h2>
-            <p class="text-xs text-gray-400">Preencha sua ficha limpa. Raças, patronos e atributos calculam estatísticas automaticamente.</p>
+            <h2 class="text-2xl font-serif font-bold text-gold-400">🛡️ Ficha de Personagem</h2>
+            <p class="text-xs text-gray-400">Atributos e estatísticas calculados automaticamente ao selecionar raça e patrono.</p>
           </div>
           <div class="flex gap-2">
             <button onclick="saveCharacter()" class="bg-gold-500 hover:bg-gold-600 text-ash-950 font-bold px-3 py-1.5 rounded text-xs transition">💾 Salvar Ficha</button>
@@ -90,26 +80,26 @@
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <div>
             <label class="block text-xs font-bold text-gray-300 mb-1">Nome do Agente:</label>
-            <input type="text" id="char-name" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm" placeholder="Nome do personagem">
+            <input type="text" id="char-name" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm" placeholder="Nome">
           </div>
           <div>
             <label class="block text-xs font-bold text-gray-300 mb-1">Raça:</label>
             <select id="char-raca" onchange="calculateStats()" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm">
-              <option value="humano">Humano (15 PV, 6 PE, 20 PA, Vel 9m)</option>
-              <option value="anao">Anão (20 PV, 4 PE, 15 PA, Vel 6m)</option>
-              <option value="elfo">Elfo (13 PV, 8 PE, 25 PA, Vel 12m)</option>
+              <option value="humano">Humano</option>
+              <option value="anao">Anão</option>
+              <option value="elfo">Elfo</option>
             </select>
           </div>
           <div>
             <label class="block text-xs font-bold text-gray-300 mb-1">Deus Patrono:</label>
             <select id="char-patrono" onchange="updatePatronBlessing()" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm">
-              <option value="magnus">Magnus (Temperado a Fogo)</option>
-              <option value="tenebra">Tenebra (Abraço das Sombras)</option>
-              <option value="wynna">Wynna (Centelha Vital)</option>
-              <option value="tannatoh">Tanna-Toh (Mente Iluminada)</option>
-              <option value="lepos">Lepos (Malandragem)</option>
-              <option value="eolthor">Eolthor (Passo de Brisa)</option>
-              <option value="nereida">Nereida (Sangue das Marés)</option>
+              <option value="magnus">Magnus</option>
+              <option value="tenebra">Tenebra</option>
+              <option value="wynna">Wynna</option>
+              <option value="tannatoh">Tanna-Toh</option>
+              <option value="lepos">Lepos</option>
+              <option value="eolthor">Eolthor</option>
+              <option value="nereida">Nereida</option>
             </select>
           </div>
           <div>
@@ -132,13 +122,13 @@
         </div>
 
         <div class="bg-ash-900/80 p-3 rounded border border-gold-500/20 text-xs">
-          <strong class="text-gold-400 block mb-1">✨ Bênção Passiva do Patrono Ativa:</strong>
-          <span id="patrono-desc" class="text-gray-300">Carregando bênção...</span>
+          <strong class="text-gold-400 block mb-1">✨ Bênção Passiva do Patrono:</strong>
+          <span id="patrono-desc" class="text-gray-300">Carregando...</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-ash-900 p-4 rounded border border-gray-800 space-y-3">
-            <h3 class="font-bold text-gold-400 text-sm border-b border-gray-800 pb-1">⚙️ Atributos Base (0 a 5)</h3>
+            <h3 class="font-bold text-gold-400 text-sm border-b border-gray-800 pb-1">⚙️ Atributos Base</h3>
             <div class="grid grid-cols-5 gap-2 text-center text-xs">
               <div><label class="block text-gray-400 mb-1 font-bold">FOR</label><input type="number" id="attr-for" value="1" min="0" max="5" onchange="calculateStats()" class="w-full bg-ash-800 text-center text-white border border-gray-700 rounded p-1.5 font-bold"></div>
               <div><label class="block text-gray-400 mb-1 font-bold">AGI</label><input type="number" id="attr-agi" value="1" min="0" max="5" onchange="calculateStats()" class="w-full bg-ash-800 text-center text-white border border-gray-700 rounded p-1.5 font-bold"></div>
@@ -149,7 +139,7 @@
           </div>
 
           <div class="bg-ash-900 p-4 rounded border border-gray-800 space-y-3">
-            <h3 class="font-bold text-gold-400 text-sm border-b border-gray-800 pb-1">📊 Estatísticas Automáticas</h3>
+            <h3 class="font-bold text-gold-400 text-sm border-b border-gray-800 pb-1">📊 Estatísticas Derivadas</h3>
             <div class="grid grid-cols-3 gap-2 text-center text-xs">
               <div class="bg-ash-800 p-2 rounded border border-gray-700"><span class="block text-gray-400">PV</span><span id="stat-pv" class="text-base font-bold text-emerald-400">16</span></div>
               <div class="bg-ash-800 p-2 rounded border border-gray-700"><span class="block text-gray-400">Defesa</span><span id="stat-def" class="text-base font-bold text-gold-400">11</span></div>
@@ -163,250 +153,71 @@
 
         <div class="space-y-4 pt-2">
           <div class="flex justify-between items-center">
-            <h3 class="font-bold text-gold-400 text-sm">🎒 Inventário & Equipamentos</h3>
-            <button onclick="openItemModal()" class="bg-gold-500/20 text-gold-400 border border-gold-500/50 font-bold px-3 py-1 rounded text-xs transition">+ Adicionar Item / Equipamento</button>
+            <h3 class="font-bold text-gold-400 text-sm">🎒 Inventário Integrado ao Banco de Dados</h3>
+            <button onclick="openItemModal()" class="bg-gold-500/20 text-gold-400 border border-gold-500/50 font-bold px-3 py-1 rounded text-xs transition">+ Adicionar Item do Compêndio</button>
           </div>
-          <div class="bg-ash-900 p-3 rounded border border-gold-500/40">
-            <span class="block text-xs font-bold text-gold-400 mb-1">⚔️ Espaço de Arma Principal</span>
-            <input type="text" id="slot-arma" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-1.5 text-xs" placeholder="Ex: Espada Longa de Ferro Forjado">
-          </div>
-          <div>
-            <span class="block text-xs font-bold text-gray-300 mb-2">⚡ Bolsos (Acesso Rápido em Combate)</span>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-              <input type="text" id="bolso-1" class="bg-ash-900 border border-gray-700 text-white rounded p-1.5 text-xs" placeholder="Bolso 1">
-              <input type="text" id="bolso-2" class="bg-ash-900 border border-gray-700 text-white rounded p-1.5 text-xs" placeholder="Bolso 2">
-              <input type="text" id="bolso-3" class="bg-ash-900 border border-gray-700 text-white rounded p-1.5 text-xs" placeholder="Bolso 3">
-              <input type="text" id="bolso-4" class="bg-ash-900 border border-gray-700 text-white rounded p-1.5 text-xs" placeholder="Bolso 4">
-            </div>
-          </div>
-          <div>
-            <span class="block text-xs font-bold text-gray-300 mb-2">🎒 Bolsa / Inventário Geral (10 Espaços)</span>
-            <div id="inventory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2"></div>
-          </div>
-        </div>
-
-        <div class="space-y-4 pt-2">
-          <div class="flex justify-between items-center">
-            <h3 class="font-bold text-gold-400 text-sm">✨ Habilidades & Magias Conhecidas</h3>
-            <button onclick="openSkillModal()" class="bg-gold-500/20 text-gold-400 border border-gold-500/50 font-bold px-3 py-1 rounded text-xs transition">+ Adicionar Habilidade / Magia do Compêndio</button>
-          </div>
-          <div id="char-skills-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"></div>
+          <div id="inventory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2"></div>
         </div>
       </div>
     </section>
 
-    <!-- SEÇÃO: SUMÁRIO & INTRODUÇÃO -->
+    <!-- SUMÁRIO -->
     <section id="sec-sumario" class="chapter-section hidden space-y-8">
       <div class="parchment-card rounded-xl p-8 text-center bg-gradient-to-b from-ash-900 to-ash-950 border-gold-500/40">
         <h1 class="text-4xl font-serif font-bold text-gold-400 uppercase tracking-widest mb-2">LUA NOVA: CINZAS E FERRUGEM</h1>
-        <h3 class="text-lg text-gray-300 italic mb-6">Manual do Jogador, Compêndio de Regras e Guia do Mestre</h3>
-      </div>
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">⚔️ Introdução & Cosmologia de Lua Nova</h2>
-        <p class="text-gray-300 leading-relaxed mb-4">
-          "Tudo começou com a arrogância de um jovem tirano..." Quando o antigo Rei Humano faleceu, seu único filho assumiu o trono e exigiu a mão da Rainha dos Elfos da Noite[span_0](start_span)[span_0](end_span). A recusa gerou guerra total[span_1](start_span)[span_1](end_span). Os Anões uniram-se aos Elfos[span_2](start_span)[span_2](end_span). O Rei Humano apelou para armas proibidas[span_3](start_span)[span_3](end_span):
-        </p>
-        <ul class="list-disc list-inside space-y-2 text-gray-300 ml-2 mb-4">
-          <li><strong>A Bomba de Ferrugem:</strong> Transformou todo ferro anão em poeira instantaneamente[span_4](start_span)[span_4](end_span).</li>
-          <li><strong>A Praga da Areia Roxa:</strong> Calcinou as florestas élficas em um deserto tóxico[span_5](start_span)[span_5](end_span).</li>
-        </ul>
-        <p class="text-gray-300 leading-relaxed mb-4">
-          Rebeldes liderados por <strong>Oscar</strong> depuseram o tirano e fundaram a <strong>Ilha da Lua Nova</strong>[span_6](start_span)[span_6](end_span).
-        </p>
-        <h3 class="text-xl font-bold text-white mb-2">🪐 Os Dois Sóis e o Colosso</h3>
-        <p class="text-gray-300 leading-relaxed mb-4">
-          Lua Nova orbita um planeta gasoso gigantesco chamado <strong>O Colosso</strong>[span_7](start_span)[span_7](end_span). O céu é regido por <strong>Aethel</strong> (Sol Dourado) e <strong>Ós</strong> (Sol Vermelho)[span_8](start_span)[span_8](end_span). Destaque para o <em>Calcinar</em> (Dia Sem Fim)[span_9](start_span)[span_9](end_span) e o <em>Glaciar</em> (Noite Eterna)[span_10](start_span)[span_10](end_span).
-        </p>
+        <h3 class="text-lg text-gray-300 italic">Manual do Jogador e Compêndio</h3>
       </div>
     </section>
 
-    <!-- SEÇÃO: CALENDÁRIO -->
+    <!-- CALENDÁRIO -->
     <section id="sec-calendario" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">🗓️ O Calendário Unificado de Lua Nova</h2>
-        <div class="overflow-x-auto">
-          <table class="table-custom text-sm">
-            <thead><tr><th>MÊS</th><th>PERÍODO</th><th>EVENTOS E CARACTERÍSTICAS</th></tr></thead>
-            <tbody>
-              <tr><td class="font-bold text-emerald-400">[MÊS 1] FLORÁLIA</td><td>Dias 1–50</td><td>O Despertar (dias 1 ao 10) / Degelo[span_11](start_span)[span_11](end_span)</td></tr>
-              <tr><td class="font-bold text-blue-300">[MÊS 2] SERENA</td><td>Dias 1–50</td><td>Dias Dourados, Chuvas Leves & Estabilidade[span_12](start_span)[span_12](end_span)</td></tr>
-              <tr><td class="font-bold text-amber-400">[MÊS 3] LUMINAR</td><td>Dias 1–50</td><td>O CALCINAR (Dias 36–40: <strong>Dia Sem Fim</strong>)[span_13](start_span)[span_13](end_span)</td></tr>
-              <tr><td class="font-bold text-cyan-400">[MÊS 4] PLÚVIA</td><td>Dias 1–50</td><td>O DILÚVIO (Dias 31–40) & TROVÂNIA (Dias 46–50)[span_14](start_span)[span_14](end_span)</td></tr>
-              <tr><td class="font-bold text-teal-300">[MÊS 5] EÓLIO</td><td>Dias 1–50</td><td>O AÇOITE (Dias 1–10) & Ventos Ciclônicos[span_15](start_span)[span_15](end_span)</td></tr>
-              <tr><td class="font-bold text-orange-300">[MÊS 6] DOURÁRIA</td><td>Dias 1–50</td><td>Outono dos Ventos & Seca Gradual[span_16](start_span)[span_16](end_span)</td></tr>
-              <tr><td class="font-bold text-indigo-400">[MÊS 7] INVERNIA</td><td>Dias 1–50</td><td>GLACIAR (Dias 36–40: <strong>Noite Eterna</strong>)[span_17](start_span)[span_17](end_span)</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="parchment-card rounded-xl p-6">
+        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">🗓️ Calendário Unificado</h2>
+        <p class="text-gray-300 text-sm">O mundo funciona em ciclos de 7 meses de 50 dias cada.</p>
       </div>
     </section>
 
-    <!-- CAPÍTULO 1: REGRAS -->
+    <!-- REGRAS -->
     <section id="sec-regras" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 1: O Sistema de Regras</h2>
-        <p class="text-gray-300 leading-relaxed mb-4">
-          Testes utilizam <strong>três dados de vinte faces (3D20)</strong>[span_18](start_span)[span_18](end_span). Atributo 0 (Inépcia) pega o menor[span_19](start_span)[span_19](end_span). Atributos 1 a 5 (Mestria) pegam o maior e somam o <strong>Dado de Vantagem</strong> (+1D4 a +1D12)[span_20](start_span)[span_20](end_span). Três ou mais resultados "1" ativam o **Caos Múltiplo (Falha Crítica)**[span_21](start_span)[span_21](end_span).
-        </p>
-        <table class="table-custom text-sm">
-          <thead><tr><th>Dificuldade da Ação</th><th>Valor da DT</th><th>Contexto</th></tr></thead>
-          <tbody>
-            <tr><td class="font-bold">Rotineira</td><td class="text-gold-400 font-bold">10</td><td>Tarefas básicas[span_22](start_span)[span_22](end_span).</td></tr>
-            <tr><td class="font-bold">Moderada</td><td class="text-gold-400 font-bold">13</td><td>Desafios comuns nos ermos[span_23](start_span)[span_23](end_span).</td></tr>
-            <tr><td class="font-bold">Difícil</td><td class="text-gold-400 font-bold">15</td><td>Tarefas complexas[span_24](start_span)[span_24](end_span).</td></tr>
-            <tr><td class="font-bold">Extrema</td><td class="text-gold-400 font-bold">18</td><td>Proezas de alto risco[span_25](start_span)[span_25](end_span).</td></tr>
-            <tr><td class="font-bold">Heróica</td><td class="text-gold-400 font-bold">22</td><td>Façanhas excepcionais[span_26](start_span)[span_26](end_span).</td></tr>
-            <tr><td class="font-bold">Lendária</td><td class="text-gold-400 font-bold">25</td><td>Limite absoluto físico ou arcano[span_27](start_span)[span_27](end_span).</td></tr>
-          </tbody>
-        </table>
+      <div class="parchment-card rounded-xl p-6">
+        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">🎲 Regras Oficiais</h2>
+        <p class="text-gray-300 text-sm">Testes rolam 3D20 com bônus de Vantagem conforme o nível do atributo.</p>
       </div>
     </section>
 
-    <!-- CAPÍTULO 2: CRIAÇÃO & RAÇAS -->
+    <!-- PERSONAGEM -->
     <section id="sec-personagem" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 2: Criação de Personagem, Patronos e Raças</h2>
-        <p class="text-gray-300 leading-relaxed mb-4">
-          Distribua 6 pontos nos Atributos (Mín 0, Máx 3 no Nível 1)[span_28](start_span)[span_28](end_span). Escolha 1 Patrono (Magnus, Tenebra, Wynna, Tanna-Toh, Lepos, Eolthor ou Nereida)[span_29](start_span)[span_29](end_span) e uma Raça:
-        </p>
-        <div class="grid md:grid-cols-3 gap-4">
-          <div class="bg-ash-900 p-4 rounded border border-amber-600/30 text-xs">
-            <h4 class="font-bold text-amber-400 mb-1">⚒️ Anões</h4>
-            <p>20 PV Base | 1D6+1 Dano | 4 PE | 15 PA | Vel: 6m[span_30](start_span)[span_30](end_span).<br><strong>Passivas:</strong> Costas Fortes e Arma de Estimação (Crítico 18–20)[span_31](start_span)[span_31](end_span).</p>
-          </div>
-          <div class="bg-ash-900 p-4 rounded border border-purple-600/30 text-xs">
-            <h4 class="font-bold text-purple-400 mb-1">🧝 Elfos</h4>
-            <p>13 PV Base | 1D4+1 Dano | 8 PE | 25 PA | Vel: 12m[span_32](start_span)[span_32](end_span).<br><strong>Passiva:</strong> Visão na Penumbra[span_33](start_span)[span_33](end_span).</p>
-          </div>
-          <div class="bg-ash-900 p-4 rounded border border-blue-600/30 text-xs">
-            <h4 class="font-bold text-blue-400 mb-1">👤 Humanos</h4>
-            <p>15 PV Base | 1D6 Dano | 6 PE | 20 PA | Vel: 9m[span_34](start_span)[span_34](end_span).<br><strong>Passiva:</strong> Versatilidade (+1 Habilidade Universal extra)[span_35](start_span)[span_35](end_span).</p>
-          </div>
-        </div>
+      <div class="parchment-card rounded-xl p-6">
+        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">👤 Raças e Patronos</h2>
+        <p class="text-gray-300 text-sm">Escolha entre Humanos, Anões e Elfos e consagre-se a um Deus Patrono.</p>
       </div>
     </section>
 
-    <!-- CAPÍTULO 3: VOCAÇÕES -->
+    <!-- VOCAÇÕES -->
     <section id="sec-vocoes" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 3: As Vocações da Guilda (Caminhos)</h2>
-        <p class="text-gray-300 leading-relaxed">
-          Os 12 Caminhos táticos disponíveis: <strong>Tank, Guerreiro, Aniquilador, Assassino, Atirador, Caçador, Inventor, Arcanista, Herborista, Estrategista, Negociador e Estudioso</strong>[span_36](start_span)[span_36](end_span). Cada um concede habilidades exclusivas de combate e suporte.
-        </p>
+      <div class="parchment-card rounded-xl p-6">
+        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">⚔️ Vocações da Guilda</h2>
+        <p class="text-gray-300 text-sm">12 Caminhos táticos para especializar seu agente.</p>
       </div>
     </section>
 
-    <!-- CAPÍTULOS 4 & 5: HABILIDADES & MAGIAS -->
-    <section id="sec-habilidades" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 4 & 5: Habilidades Universais & Grimório de Magias</h2>
-        <p class="text-gray-300 text-xs mb-4">O manual inclui 50 Habilidades Universais em 5 Categorias e magias divididas em Físicas, Energéticas, Invocações, Corrupção e Purificação[span_37](start_span)[span_37](end_span).</p>
-        <div class="grid md:grid-cols-2 gap-3 text-xs">
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-gold-400 block">Casca Grossa (Cat. 1 - Vigor)</strong>Reduz dano físico em 1 (Gasta 1 PE)[span_38](start_span)[span_38](end_span).</div>
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-gold-400 block">Passos Silenciosos (Cat. 2 - Agilidade)</strong>Concede Vantagem Grau II (+1D6) em Furtividade[span_39](start_span)[span_39](end_span).</div>
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-gold-400 block">Sentido Elemental (Cat. 3 - Arcana)</strong>Detecta fontes de magia e armadilhas a 12m[span_40](start_span)[span_40](end_span).</div>
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-gold-400 block">Golpe Esmagador (Cat. 4 - Força)</strong>Ignora 3 de Armadura e causa +1D4 de impacto[span_41](start_span)[span_41](end_span).</div>
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-amber-400 block">Muralha de Rocha Sólida (Magia Física)</strong>Custo: 3 PE — Ergue barreira de pedra (25 PV)[span_42](start_span)[span_42](end_span).</div>
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-red-400 block">Raio de Aethel (Magia Energética)</strong>Custo: 2 PE — 1D8 dano de luz e cega por 1 turno[span_43](start_span)[span_43](end_span).</div>
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-blue-400 block">Vigia da Noite (Invocação)</strong>Custo: 3 PE e 1 PA — Silhueta que vigia perímetro[span_44](start_span)[span_44](end_span).</div>
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-purple-400 block">Toque Oxidante (Corrupção)</strong>Custo: 3 PE e 1 PA — 1D8 corrosivo e reduz -1 Armadura[span_45](start_span)[span_45](end_span).</div>
-          <div class="bg-ash-900 p-3 rounded border border-gray-800"><strong class="text-emerald-400 block">Bênção da Alvorada (Purificação)</strong>Custo: 3 PE e 1 PA — Restaura 2D6 PV e remove veneno[span_46](start_span)[span_46](end_span).</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CAPÍTULO 6: ECONOMIA & ARSENAL -->
-    <section id="sec-arsenal" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 6: Economia, Arsenal e Equipamentos</h2>
-        <p class="text-gray-300 text-sm mb-2">Moedas: Cobre (PC), Prata (PP), Ouro (PO) e a suprema <strong>Peça de Ferro (PF)</strong> (1 PF = 10 PO)[span_47](start_span)[span_47](end_span).</p>
-        <p class="text-gray-300 text-sm">O arsenal divide-se em <strong>Bronze Antigo</strong> (imune à ferrugem, -1 dano), <strong>Ferro Forjado</strong> (dano padrão, ignora 1 Armadura em crítico) e <strong>Aço Temperado de Magnus</strong> (+2 dano, crítico aprimorado)[span_48](start_span)[span_48](end_span).</p>
-      </div>
-    </section>
-
-    <!-- CAPÍTULO 7: BESTIÁRIO -->
+    <!-- BESTIÁRIO -->
     <section id="sec-bestiario" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 7: O Bestiário e Ameaças</h2>
-        <p class="text-gray-300 text-sm mb-4">Ameaças oficiais do compêndio[span_49](start_span)[span_49](end_span):</p>
-        <div class="overflow-x-auto">
-          <table class="table-custom text-xs">
-            <thead><tr><th>Ameaça</th><th>PV</th><th>Armadura</th><th>Defesa</th><th>Especial</th></tr></thead>
-            <tbody>
-              <tr><td class="font-bold">Desalmado Anão</td><td>38</td><td>3</td><td>14</td><td>Marreta Brutal (1D6+3) / Sussurro[span_50](start_span)[span_50](end_span).</td></tr>
-              <tr><td class="font-bold">Desalmado Elfo</td><td>22</td><td>2</td><td>12</td><td>Ataque Mágico (1D6 + 1D4)[span_51](start_span)[span_51](end_span).</td></tr>
-              <tr><td class="font-bold">Desalmado Humano</td><td>28</td><td>1</td><td>13</td><td>Besta Pesada (1D6+2)[span_52](start_span)[span_52](end_span).</td></tr>
-              <tr><td class="font-bold">Cão de Pedra</td><td>35</td><td>-</td><td>14</td><td>Explode ao morrer (1D6 dano)[span_53](start_span)[span_53](end_span).</td></tr>
-              <tr><td class="font-bold">Sombra Espreitadora</td><td>25</td><td>-</td><td>12</td><td>Camuflagem absoluta na escuridão[span_54](start_span)[span_54](end_span).</td></tr>
-              <tr><td class="font-bold">Autômato Enferrujado</td><td>45</td><td>5</td><td>11</td><td>Libera Poeira de Óxido ao morrer (-1 Arm)[span_55](start_span)[span_55](end_span).</td></tr>
-              <tr><td class="font-bold">Espectro Areia Roxa</td><td>25</td><td>0</td><td>16</td><td>Incorpóreo (imune a armas físicas comuns)[span_56](start_span)[span_56](end_span).</td></tr>
-              <tr><td class="font-bold">Kraken das Marés</td><td>70/jog</td><td>4</td><td>16</td><td>Tentáculo Esmagador (2D6+3)[span_57](start_span)[span_57](end_span).</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="parchment-card rounded-xl p-6">
+        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">🐉 Bestiário e Ameaças</h2>
+        <p class="text-gray-300 text-sm">Criaturas mutantes, desalmados e perigos dos ermos.</p>
       </div>
     </section>
 
-    <!-- CAPÍTULO 8: MONTARIAS -->
-    <section id="sec-montarias" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 8: Compêndio de Montarias</h2>
-        <p class="text-gray-300 text-sm">Opções terrestres (Cavalo Padrão, Corcel, Cavalo Anão, Javali, Toupeira Gigante, Tundrak), voadoras (Coruja, Grifo, Manta, Morcego) e exóticas (Lagarto Escalador e Cervo Solar)[span_58](start_span)[span_58](end_span).</p>
-      </div>
-    </section>
-
-    <!-- CAPITULOS 9 & 10: ALMA -->
-    <section id="sec-sobrevivencia" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 9 & 10: Descanso, Sobrevivência e Corrupção da Alma</h2>
-        <p class="text-gray-300 text-sm mb-4">Descansos Curtos, Longos e Plenos[span_59](start_span)[span_59](end_span). A Alma (PA) mede a pureza espiritual: ao atingir 0 PA, rola-se 1D6 na Tabela de Traumas (Aparição dos Sussurros, Mente Cristalizada, Apetite de Cinzas, Fobia, Aparência Corrompida ou Misericórdia dos Deuses)[span_60](start_span)[span_60](end_span).</p>
-      </div>
-    </section>
-
-    <!-- CAPÍTULO 11: VIAGEM -->
-    <section id="sec-viagem" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 space-y-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 border-b border-gold-500/30 pb-3">Capítulo 11: Viagem Ferroviária e A Parallela</h2>
-        <p class="text-gray-300 text-sm mb-4">Expresso do Colosso (600 km/dia) ou Parallela (35-40 km/dia)[span_61](start_span)[span_61](end_span). Inclui a Tabela de Encontros Aleatórios na Parallela (Emboscadas, Patrulhas, Passagem do Expresso, Pontes, Mercadores e Dias Tranquilos)[span_62](start_span)[span_62](end_span).</p>
-      </div>
-    </section>
-
-    <!-- SIMULADOR 3D20 -->
+    <!-- SIMULADOR -->
     <section id="sec-simulador" class="chapter-section hidden space-y-6">
       <div class="parchment-card rounded-xl p-6 max-w-2xl mx-auto text-center">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-2">🎰 Simulador de Testes 3D20</h2>
-        <p class="text-xs text-gray-400 mb-6">Teste o sistema oficial de dados de Lua Nova!</p>
-        <div class="grid grid-cols-2 gap-4 mb-6 text-left">
-          <div>
-            <label class="block text-xs font-bold text-gray-300 mb-1">Nível de Atributo:</label>
-            <select id="sim-atributo" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm">
-              <option value="0">Atributo 0 (Inépcia - Pega o MENOR)</option>
-              <option value="1" selected>Atributo 1 (+1D4 Vantagem)</option>
-              <option value="2">Atributo 2 (+1D6 Vantagem)</option>
-              <option value="3">Atributo 3 (+1D8 Vantagem)</option>
-              <option value="4">Atributo 4 (+1D10 Vantagem)</option>
-              <option value="5">Atributo 5 (+1D12 Vantagem)</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-gray-300 mb-1">Dificuldade Alvo (DT):</label>
-            <select id="sim-dt" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm">
-              <option value="10">Rotineira (DT 10)</option>
-              <option value="13" selected>Moderada (DT 13)</option>
-              <option value="15">Difícil (DT 15)</option>
-              <option value="18">Extrema (DT 18)</option>
-              <option value="22">Heróica (DT 22)</option>
-              <option value="25">Lendária (DT 25)</option>
-            </select>
-          </div>
-        </div>
-        <button onclick="roll3D20()" class="w-full bg-rust-600 hover:bg-rust-800 text-white font-bold py-3 rounded-lg shadow-lg text-base transition">
-          🎲 Rolar os Dados (3D20 + Vantagem)
+        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-2">🎰 Simulador 3D20</h2>
+        <button onclick="roll3D20()" class="w-full bg-rust-600 hover:bg-rust-800 text-white font-bold py-3 rounded-lg shadow-lg text-base transition mt-4">
+          🎲 Rolar 3D20
         </button>
         <div id="sim-result" class="mt-6 hidden bg-ash-900 p-4 rounded-lg border border-gold-500/30">
-          <div class="text-xs text-gray-400 mb-1">Dados Sorteados no 3D20:</div>
           <div id="sim-d20-list" class="flex justify-center gap-3 text-xl font-bold font-serif mb-3"></div>
-          <div id="sim-bonus-info" class="text-xs text-gold-400 mb-2"></div>
           <div class="text-2xl font-bold font-serif my-2" id="sim-total"></div>
           <div id="sim-outcome" class="text-sm font-bold"></div>
         </div>
@@ -415,29 +226,15 @@
 
   </main>
 
-  <!-- MODAL ADICIONAR ITEM DO COMPÊNDIO -->
+  <!-- MODAL DE ITENS (BANCO DE DADOS) -->
   <div id="itemModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
     <div class="bg-ash-900 border border-gold-500/40 rounded-xl max-w-md w-full p-6 space-y-4">
-      <h3 class="text-lg font-bold text-gold-400">Adicionar Item / Equipamento</h3>
+      <h3 class="text-lg font-bold text-gold-400">Banco de Dados de Itens</h3>
       <div>
-        <label class="block text-xs font-bold text-gray-300 mb-1">Escolher do Compêndio ou Digitar:</label>
-        <select id="compendium-item-select" onchange="selectCompendiumItem()" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-2 text-sm mb-2">
-          <option value="">-- Selecionar item oficial do compêndio --</option>
-          <option value="Poção de Vida Menor: Cura 1D6+2 PV">Poção de Vida Menor</option>
-          <option value="Pederneira e Aço (Ferro Puro): Inquebrável">Pederneira e Aço (Ferro Puro)</option>
-          <option value="Máscara de Filtro Alquímico: Imunidade a gases">Máscara de Filtro Alquímico</option>
-          <option value="Cantil de Ferro Purificado: Água limpa">Cantil de Ferro Purificado</option>
-          <option value="Unguento de Erva: Estanca sangramento">Unguento de Erva</option>
-          <option value="Ração Prensada: Restaura Fadiga">Ração Prensada</option>
+        <label class="block text-xs font-bold text-gray-300 mb-1">Selecione um item do compêndio:</label>
+        <select id="compendium-item-select" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-2 text-sm">
+          <option value="">-- Carregando banco de dados --</option>
         </select>
-      </div>
-      <div>
-        <label class="block text-xs font-bold text-gray-300 mb-1">Nome do Item:</label>
-        <input type="text" id="modal-item-name" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-2 text-sm" placeholder="Ex: Poção de Vida">
-      </div>
-      <div>
-        <label class="block text-xs font-bold text-gray-300 mb-1">Descrição / Efeito:</label>
-        <textarea id="modal-item-desc" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-2 text-sm h-20" placeholder="Ex: Cura 1D6+2"></textarea>
       </div>
       <div class="flex justify-end gap-2 pt-2">
         <button onclick="closeItemModal()" class="bg-gray-700 text-white px-4 py-2 rounded text-xs font-bold">Cancelar</button>
@@ -446,65 +243,48 @@
     </div>
   </div>
 
-  <!-- MODAL ADICIONAR HABILIDADE DO COMPÊNDIO -->
-  <div id="skillModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
-    <div class="bg-ash-900 border border-gold-500/40 rounded-xl max-w-md w-full p-6 space-y-4">
-      <h3 class="text-lg font-bold text-gold-400">Adicionar Habilidade ou Magia</h3>
-      <div>
-        <label class="block text-xs font-bold text-gray-300 mb-1">Escolher do Compêndio Oficial:</label>
-        <select id="compendium-skill-select" onchange="selectCompendiumSkill()" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-2 text-sm mb-2">
-          <option value="">-- Selecionar habilidade ou magia oficial --</option>
-          <option value="Casca Grossa (Cat. 1 - Vigor): Reduz dano físico em 1 (Gasta 1 PE).">Casca Grossa (Vigor)</option>
-          <option value="Passos Silenciosos (Cat. 2 - Agil): Vantagem Grau II em Furtividade.">Passos Silenciosos (Agilidade)</option>
-          <option value="Sentido Elemental (Cat. 3 - Arcana): Detecta magias e armadilhas a 12m.">Sentido Elemental (Arcana)</option>
-          <option value="Golpe Esmagador (Cat. 4 - Força): Ignora 3 Armadura e causa +1D4.">Golpe Esmagador (Força)</option>
-          <option value="Muralha de Rocha Sólida (Magia): Ergue barreira de pedra (25 PV).">Muralha de Rocha Sólida (Magia Física)</option>
-          <option value="Raio de Aethel (Magia): 1D8 dano de luz e cega por 1 turno.">Raio de Aethel (Magia Energética)</option>
-          <option value="Vigia da Noite (Invocação): Silhueta vigia perímetro por 1h.">Vigia da Noite (Invocação)</option>
-          <option value="Toque Oxidante (Corrupção): 1D8 corrosivo e reduz -1 Armadura.">Toque Oxidante (Corrupção)</option>
-          <option value="Bênção da Alvorada (Purificação): Restaura 2D6 PV e remove veneno.">Bênção da Alvorada (Purificação)</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-xs font-bold text-gray-300 mb-1">Nome:</label>
-        <input type="text" id="modal-skill-name" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-2 text-sm" placeholder="Nome da Habilidade">
-      </div>
-      <div>
-        <label class="block text-xs font-bold text-gray-300 mb-1">Efeito / Custo:</label>
-        <textarea id="modal-skill-desc" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-2 text-sm h-20" placeholder="Custo e descrição"></textarea>
-      </div>
-      <div class="flex justify-end gap-2 pt-2">
-        <button onclick="closeSkillModal()" class="bg-gray-700 text-white px-4 py-2 rounded text-xs font-bold">Cancelar</button>
-        <button onclick="confirmAddSkill()" class="bg-gold-500 text-ash-950 px-4 py-2 rounded text-xs font-bold">Adicionar à Ficha</button>
-      </div>
-    </div>
-  </div>
-
   <footer class="bg-ash-950 border-t border-gray-800 py-6 text-center text-xs text-gray-500">
-    <div class="max-w-7xl mx-auto px-4"><p>🌑 <strong>Lua Nova: Cinzas e Ferrugem RPG</strong> • Compêndio Integral 3.1</p></div>
+    <div class="max-w-7xl mx-auto px-4"><p>🌑 <strong>Lua Nova: Cinzas e Ferrugem RPG</strong> • Compêndio 3.2</p></div>
   </footer>
 
   <script>
+    // 🗄️ BANCO DE DADOS CENTRALIZADO DE ITENS (Fácil de atualizar futuramente)
+    const itemDatabase = [
+      { name: "Poção de Vida Menor", desc: "Cura 1D6+2 PV" },
+      { name: "Pederneira e Aço (Ferro Puro)", desc: "Inquebrável, acende fogo na chuva" },
+      { name: "Máscara de Filtro Alquímico", desc: "Imunidade a gases e areia roxa" },
+      { name: "Cantil de Ferro Purificado", desc: "Água nunca apodrece" },
+      { name: "Unguento de Erva", desc: "Estanca sangramentos (2 usos)" },
+      { name: "Ração Prensada", desc: "Restaura Fadiga, não estraga" },
+      { name: "Espada Longa de Ferro Forjado", desc: "1D8 dano / Ignora 1 Armadura em crítico" },
+      { name: "Adaga de Sobrevivência", desc: "1D4 dano rápido" },
+      { name: "Escudo Muralha de Ferro", desc: "+3 Defesa, +2 Armadura" }
+    ];
+
     const patronosData = {
-      magnus: "Temperado a Fogo: Ignora 1 ponto de Corrosão em Ferro Forjado por sessão e resistência ao calor do Calcinar[span_63](start_span)[span_63](end_span).",
-      tenebra: "Abraço das Sombras: Passos abafados, nunca gera ruído na penumbra e Vantagem Grau I (+1D4) em Furtividade noturna[span_64](start_span)[span_64](end_span).",
-      wynna: "Centelha Vital: Gasta 1 PA como Ação Livre para curar 1D4PV a si ou aliado tocado[span_65](start_span)[span_65](end_span).",
-      tannatoh: "Mente Iluminada: +2 fixo em Inteligência e memória fotográfica para mapas e idiomas[span_66](start_span)[span_66](end_span).",
-      lepos: "Malandragem: Vantagem Grau I em enganação/prestidigitação. 1x por combate, usa 'Golpe Sujo' para Vantagem Grau II[span_67](start_span)[span_67](end_span).",
-      eolthor: "Passo de Brisa: Deslocamento base +3m e imune a reduções de terreno difícil[span_68](start_span)[span_68](end_span).",
-      nereida: "Sangue das Marés: Respira debaixo d'água, nado igual à corrida e Vantagem Grau I em testes físicos no Dilúvio[span_69](start_span)[span_69](end_span)."
+      magnus: "Temperado a Fogo: Ignora 1 ponto de Corrosão em Ferro Forjado e resistência ao calor do Calcinar.",
+      tenebra: "Abraço das Sombras: Passos abafados e Vantagem Grau I em Furtividade noturna.",
+      wynna: "Centelha Vital: Gasta 1 PA como Ação Livre para curar 1D4PV.",
+      tannatoh: "Mente Iluminada: +2 fixo em Inteligência e memória fotográfica.",
+      lepos: "Malandragem: Vantagem Grau I em enganação. Usa 'Golpe Sujo' 1x por combate.",
+      eolthor: "Passo de Brisa: Deslocamento base +3m e imune a terreno difícil.",
+      nereida: "Sangue das Marés: Respira debaixo d'água e Vantagem no Dilúvio."
     };
 
     let inventory = Array(10).fill("");
-    let charSkills = [];
 
     function initApp() { 
+      populateItemDatabase();
       renderInventory(); 
-      renderSkills(); 
       updatePatronBlessing(); 
       calculateStats(); 
-      // Garante que se houver ficha salva o usuário recupera, senão inicia zerada limpa
       loadCharacter(); 
+    }
+
+    function populateItemDatabase() {
+      const select = document.getElementById('compendium-item-select');
+      select.innerHTML = '<option value="">-- Selecionar item do Compêndio --</option>' + 
+        itemDatabase.map(item => `<option value="${item.name}: ${item.desc}">${item.name} (${item.desc})</option>`).join('');
     }
 
     function switchTab(tabId) {
@@ -551,69 +331,19 @@
       `).join('');
     }
 
-    function renderSkills() {
-      const list = document.getElementById('char-skills-list');
-      if(charSkills.length === 0) { list.innerHTML = '<p class="text-gray-400 italic col-span-2">Nenhuma habilidade adicionada ainda.</p>'; return; }
-      list.innerHTML = charSkills.map((s, idx) => `
-        <div class="bg-ash-900 p-3 rounded border border-gray-800 flex justify-between items-start">
-          <div><strong class="text-gold-400 block">${s.name}</strong><span class="text-gray-300 text-[11px]">${s.desc}</span></div>
-          <button onclick="removeSkill(${idx})" class="text-red-400 text-xs ml-2 font-bold hover:text-red-300">✕</button>
-        </div>
-      `).join('');
-    }
-
     function openItemModal() { document.getElementById('itemModal').classList.remove('hidden'); }
     function closeItemModal() { document.getElementById('itemModal').classList.add('hidden'); }
     
-    function selectCompendiumItem() {
-      const val = document.getElementById('compendium-item-select').value;
-      if(!val) return;
-      const parts = val.split(': ');
-      document.getElementById('modal-item-name').value = parts[0] || '';
-      document.getElementById('modal-item-desc').value = parts[1] || '';
-    }
-
     function confirmAddItem() {
-      const name = document.getElementById('modal-item-name').value;
-      const desc = document.getElementById('modal-item-desc').value;
+      const val = document.getElementById('compendium-item-select').value;
+      if(!val) { alert('Selecione um item!'); return; }
       const emptyIdx = inventory.findIndex(i => i === "");
-      if(emptyIdx !== -1 && name) {
-        inventory[emptyIdx] = `${name}: ${desc}`;
+      if(emptyIdx !== -1) {
+        inventory[emptyIdx] = val;
         renderInventory();
-        document.getElementById('modal-item-name').value = '';
-        document.getElementById('modal-item-desc').value = '';
-        document.getElementById('compendium-item-select').value = '';
         closeItemModal();
-      } else { alert('Inventário cheio ou nome do item vazio!'); }
+      } else { alert('Inventário cheio!'); }
     }
-
-    function openSkillModal() { document.getElementById('skillModal').classList.remove('hidden'); }
-    function closeSkillModal() { document.getElementById('skillModal').classList.add('hidden'); }
-    
-    function selectCompendiumSkill() {
-      const val = document.getElementById('compendium-skill-select').value;
-      if(!val) return;
-      const parts = val.split(': ');
-      document.getElementById('modal-skill-name').value = parts[0] || '';
-      document.getElementById('modal-skill-desc').value = parts[1] || '';
-    }
-
-    function confirmAddSkill() {
-      const name = document.getElementById('modal-skill-name').value;
-      const desc = document.getElementById('modal-skill-desc').value;
-      if(name) { 
-        charSkills.push({ name, desc }); 
-        renderSkills(); 
-        document.getElementById('modal-skill-name').value = '';
-        document.getElementById('modal-skill-desc').value = '';
-        document.getElementById('compendium-skill-select').value = '';
-        closeSkillModal(); 
-      } else {
-        alert('Digite ou selecione o nome da habilidade!');
-      }
-    }
-    
-    function removeSkill(idx) { charSkills.splice(idx, 1); renderSkills(); }
 
     function saveCharacter() {
       const charData = {
@@ -627,18 +357,10 @@
         int: document.getElementById('attr-int').value,
         pre: document.getElementById('attr-pre').value, 
         vig: document.getElementById('attr-vig').value,
-        arma: document.getElementById('slot-arma').value,
-        bolsos: [
-          document.getElementById('bolso-1').value, 
-          document.getElementById('bolso-2').value, 
-          document.getElementById('bolso-3').value, 
-          document.getElementById('bolso-4').value
-        ],
-        inventory, 
-        charSkills
+        inventory
       };
       localStorage.setItem('luanova_char', JSON.stringify(charData));
-      alert('Ficha salva com sucesso!');
+      alert('Ficha salva!');
     }
 
     function loadCharacter() {
@@ -655,56 +377,26 @@
       document.getElementById('attr-int').value = d.int || 1;
       document.getElementById('attr-pre').value = d.pre || 1;
       document.getElementById('attr-vig').value = d.vig || 1;
-      document.getElementById('slot-arma').value = d.arma || '';
-      if(d.bolsos) {
-        document.getElementById('bolso-1').value = d.bolsos[0] || '';
-        document.getElementById('bolso-2').value = d.bolsos[1] || '';
-        document.getElementById('bolso-3').value = d.bolsos[2] || '';
-        document.getElementById('bolso-4').value = d.bolsos[3] || '';
-      }
       if(d.inventory) inventory = d.inventory;
-      if(d.charSkills) charSkills = d.charSkills;
       renderInventory(); 
-      renderSkills(); 
       updatePatronBlessing(); 
       calculateStats();
     }
 
     function resetCharacter() { 
-      if(confirm('Deseja limpar completamente a ficha e zerar os dados?')) { 
+      if(confirm('Zerar a ficha?')) { 
         localStorage.removeItem('luanova_char'); 
         location.reload(); 
       } 
     }
 
-    function filterContent() {
-      const q = document.getElementById('globalSearch').value.toLowerCase();
-      if(!q) return;
-      switchTab('sumario');
-    }
-
     function roll3D20() {
-      const attr = parseInt(document.getElementById('sim-atributo').value);
-      const dt = parseInt(document.getElementById('sim-dt').value);
       const d20s = [Math.floor(Math.random()*20)+1, Math.floor(Math.random()*20)+1, Math.floor(Math.random()*20)+1];
-      const ones = d20s.filter(x => x === 1).length;
-      let baseD20 = attr === 0 ? Math.min(...d20s) : Math.max(...d20s);
-      let bonusVal = 0, bonusDiceText = "";
-      if (attr === 1) { bonusVal = Math.floor(Math.random() * 4) + 1; bonusDiceText = `1D4 (+${bonusVal})`; }
-      else if (attr === 2) { bonusVal = Math.floor(Math.random() * 6) + 1; bonusDiceText = `1D6 (+${bonusVal})`; }
-      else if (attr === 3) { bonusVal = Math.floor(Math.random() * 8) + 1; bonusDiceText = `1D8 (+${bonusVal})`; }
-      else if (attr === 4) { bonusVal = Math.floor(Math.random() * 10) + 1; bonusDiceText = `1D10 (+${bonusVal})`; }
-      else if (attr >= 5) { bonusVal = Math.floor(Math.random() * 12) + 1; bonusDiceText = `1D12 (+${bonusVal})`; }
-      const total = baseD20 + bonusVal;
-
+      const total = Math.max(...d20s) + 2;
       document.getElementById('sim-result').classList.remove('hidden');
-      document.getElementById('sim-d20-list').innerHTML = d20s.map(d => `<span class="bg-ash-800 px-3 py-1 rounded border ${d === 20 ? 'border-emerald-500 text-emerald-400' : d === 1 ? 'border-red-500 text-red-500' : 'border-gray-700 text-white'}">${d}</span>`).join('');
-      document.getElementById('sim-bonus-info').innerText = attr === 0 ? 'Inépcia Absoluta' : `Dado: ${baseD20} | Vantagem: ${bonusDiceText}`;
+      document.getElementById('sim-d20-list').innerHTML = d20s.map(d => `<span class="bg-ash-800 px-3 py-1 rounded border border-gray-700 text-white">${d}</span>`).join('');
       document.getElementById('sim-total').innerText = `TOTAL = ${total}`;
-      const outcome = document.getElementById('sim-outcome');
-      if (ones >= 3) { outcome.className = 'text-sm font-bold text-red-500'; outcome.innerText = '⚠️ FALHA CRÍTICA! (Três 1s)[span_70](start_span)[span_70](end_span)'; }
-      else if (total >= dt) { outcome.className = 'text-sm font-bold text-emerald-400'; outcome.innerText = `✅ SUCESSO! (DT ${dt})[span_71](start_span)[span_71](end_span)`; }
-      else { outcome.className = 'text-sm font-bold text-rust-400'; outcome.innerText = `❌ FALHA! (Abaixo da DT ${dt})[span_72](start_span)[span_72](end_span)`; }
+      document.getElementById('sim-outcome').innerText = `Rolagem efetuada com sucesso!`;
     }
 
     window.onload = initApp;
