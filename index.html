@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lua Nova: Cinzas e Ferrugem - Compêndio Integral 3.2</title>
+  <title>Lua Nova: Cinzas e Ferrugem - RPG</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -12,7 +12,7 @@
       theme: {
         extend: {
           colors: {
-            rust: { 50: '#fdf8f6', 100: '#f2e8e5', 400: '#cd6e57', 600: '#9b3d28', 800: '#5c2215', 900: '#38130a' },
+            rust: { 600: '#9b3d28', 800: '#5c2215' },
             ash: { 800: '#1d2127', 900: '#121519', 950: '#0b0d10' },
             gold: { 400: '#e5c158', 500: '#d4af37', 600: '#aa8822' }
           },
@@ -34,42 +34,55 @@
 </head>
 <body class="min-h-screen flex flex-col selection:bg-gold-500 selection:text-ash-950">
 
-  <!-- NAVEGAÇÃO SUPERIOR -->
+  <!-- NAVEGAÇÃO PRINCIPAL (EXATAMENTE AS 3 ABAS PEDIDAS) -->
   <header class="sticky top-0 z-50 bg-ash-950/95 backdrop-blur border-b border-gold-500/30">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-3">
         <span class="text-3xl">🌑</span>
         <div>
-          <h1 class="text-xl font-bold font-serif text-gold-400 tracking-wider">LUA NOVA</h1>
-          <p class="text-xs text-gray-400 uppercase tracking-widest">Cinzas e Ferrugem • Compêndio Integral 3.2</p>
+          <h1 class="text-lg font-bold font-serif text-gold-400 tracking-wider">LUA NOVA</h1>
+          <p class="text-[10px] text-gray-400 uppercase tracking-widest">Cinzas e Ferrugem</p>
         </div>
       </div>
     </div>
 
-    <nav class="bg-ash-900 border-t border-gray-800 overflow-x-auto">
-      <div class="max-w-7xl mx-auto px-4 flex space-x-1 py-2 text-sm whitespace-nowrap">
-        <button onclick="switchTab('ficha')" id="tab-ficha" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gold-400 bg-ash-800 border border-gold-500/40">🛡️ Ficha</button>
-        <button onclick="switchTab('sumario')" id="tab-sumario" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">📜 Sumário</button>
-        <button onclick="switchTab('calendario')" id="tab-calendario" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🗓️ Calendário</button>
-        <button onclick="switchTab('regras')" id="tab-regras" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🎲 Regras</button>
-        <button onclick="switchTab('personagem')" id="tab-personagem" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">👤 Raças & Patronos</button>
-        <button onclick="switchTab('vocoes')" id="tab-vocoes" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">⚔️ Vocações</button>
-        <button onclick="switchTab('bestiario')" id="tab-bestiario" class="nav-tab px-3 py-1.5 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🐉 Bestiário</button>
-        <button onclick="switchTab('simulador')" id="tab-simulador" class="nav-tab px-3 py-1.5 rounded-md font-medium text-rust-400 hover:text-gold-400 hover:bg-ash-800 transition">🎰 Simulador 3D20</button>
+    <nav class="bg-ash-900 border-t border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 flex justify-center space-x-4 py-2 text-sm">
+        <button onclick="switchTab('livro')" id="tab-livro" class="nav-tab px-5 py-2 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">📖 O Livro</button>
+        <button onclick="switchTab('ficha')" id="tab-ficha" class="nav-tab px-5 py-2 rounded-md font-medium text-gold-400 bg-ash-800 border border-gold-500/40">🛡️ Ficha</button>
+        <button onclick="switchTab('simulador')" id="tab-simulador" class="nav-tab px-5 py-2 rounded-md font-medium text-gray-400 hover:text-gold-400 hover:bg-ash-800 transition">🎲 Simulador de Dados</button>
       </div>
     </nav>
   </header>
 
   <!-- CONTEÚDO PRINCIPAL -->
-  <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full space-y-12">
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-1 w-full">
 
-    <!-- FICHA DE PERSONAGEM -->
-    <section id="sec-ficha" class="chapter-section space-y-6">
+    <!-- ABA 1: O LIVRO (COMPÊNDIO) -->
+    <section id="sec-livro" class="app-section hidden space-y-6">
+      <div class="parchment-card rounded-xl p-6 space-y-6">
+        <div class="border-b border-gold-500/30 pb-4">
+          <h2 class="text-2xl font-serif font-bold text-gold-400">📜 Compêndio & Livro de Regras</h2>
+          <p class="text-xs text-gray-400">Manual oficial do Jogador, Guia do Mestre e Cosmologia.</p>
+        </div>
+        
+        <div class="space-y-4 text-sm text-gray-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-gold-400">1. Introdução & Cosmologia de Lua Nova</h3>
+          <p>O cenário orbita o planeta gasoso <strong>O Colosso</strong> e é regido por dois sóis: <em>Aethel</em> (Sol Dourado) e <em>Ós</em> (Sol Vermelho). O mundo vivencia eventos globais simultâneos como o <em>Calcinar</em> (Dia Sem Fim) e o <em>Glaciar</em> (Noite Eterna).</p>
+          
+          <h3 class="text-lg font-bold text-gold-400">2. O Sistema de Regras (3D20)</h3>
+          <p>Todas as rolagens utilizam 3D20. Atributo 0 obriga a ficar com o menor valor. Atributos de 1 a 5 utilizam o maior valor somado ao Dado de Vantagem (+1D4 a +1D12). Três resultados "1" na mesa disparam o Caos Múltiplo (Falha Crítica).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 2: FICHA DE PERSONAGEM (LIMPA E MODULAR) -->
+    <section id="sec-ficha" class="app-section space-y-6">
       <div class="parchment-card rounded-xl p-6 space-y-6">
         <div class="flex flex-wrap justify-between items-center border-b border-gold-500/30 pb-4 gap-4">
           <div>
             <h2 class="text-2xl font-serif font-bold text-gold-400">🛡️ Ficha de Personagem</h2>
-            <p class="text-xs text-gray-400">Atributos e estatísticas calculados automaticamente ao selecionar raça e patrono.</p>
+            <p class="text-xs text-gray-400">Criação limpa com cálculo automático de atributos e inventário interativo.</p>
           </div>
           <div class="flex gap-2">
             <button onclick="saveCharacter()" class="bg-gold-500 hover:bg-gold-600 text-ash-950 font-bold px-3 py-1.5 rounded text-xs transition">💾 Salvar Ficha</button>
@@ -77,10 +90,11 @@
           </div>
         </div>
 
+        <!-- SELETORES LIMPOS -->
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <div>
-            <label class="block text-xs font-bold text-gray-300 mb-1">Nome do Agente:</label>
-            <input type="text" id="char-name" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm" placeholder="Nome">
+            <label class="block text-xs font-bold text-gray-300 mb-1">Nome:</label>
+            <input type="text" id="char-name" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm" placeholder="Nome do Agente">
           </div>
           <div>
             <label class="block text-xs font-bold text-gray-300 mb-1">Raça:</label>
@@ -121,11 +135,13 @@
           </div>
         </div>
 
+        <!-- BÊNÇÃO ATIVA -->
         <div class="bg-ash-900/80 p-3 rounded border border-gold-500/20 text-xs">
           <strong class="text-gold-400 block mb-1">✨ Bênção Passiva do Patrono:</strong>
           <span id="patrono-desc" class="text-gray-300">Carregando...</span>
         </div>
 
+        <!-- ATRIBUTOS E ESTATÍSTICAS -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-ash-900 p-4 rounded border border-gray-800 space-y-3">
             <h3 class="font-bold text-gold-400 text-sm border-b border-gray-800 pb-1">⚙️ Atributos Base</h3>
@@ -151,74 +167,57 @@
           </div>
         </div>
 
+        <!-- INVENTÁRIO INTERATIVO -->
         <div class="space-y-4 pt-2">
           <div class="flex justify-between items-center">
-            <h3 class="font-bold text-gold-400 text-sm">🎒 Inventário Integrado ao Banco de Dados</h3>
-            <button onclick="openItemModal()" class="bg-gold-500/20 text-gold-400 border border-gold-500/50 font-bold px-3 py-1 rounded text-xs transition">+ Adicionar Item do Compêndio</button>
+            <h3 class="font-bold text-gold-400 text-sm">🎒 Inventário (Banco de Dados)</h3>
+            <button onclick="openItemModal()" class="bg-gold-500/20 text-gold-400 border border-gold-500/50 font-bold px-3 py-1 rounded text-xs transition">+ Adicionar Item</button>
           </div>
           <div id="inventory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2"></div>
         </div>
       </div>
     </section>
 
-    <!-- SUMÁRIO -->
-    <section id="sec-sumario" class="chapter-section hidden space-y-8">
-      <div class="parchment-card rounded-xl p-8 text-center bg-gradient-to-b from-ash-900 to-ash-950 border-gold-500/40">
-        <h1 class="text-4xl font-serif font-bold text-gold-400 uppercase tracking-widest mb-2">LUA NOVA: CINZAS E FERRUGEM</h1>
-        <h3 class="text-lg text-gray-300 italic">Manual do Jogador e Compêndio</h3>
-      </div>
-    </section>
+    <!-- ABA 3: SIMULADOR DE DADOS -->
+    <section id="sec-simulador" class="app-section hidden space-y-6">
+      <div class="parchment-card rounded-xl p-6 max-w-lg mx-auto text-center space-y-4">
+        <h2 class="text-2xl font-serif font-bold text-gold-400">🎰 Simulador 3D20</h2>
+        <p class="text-xs text-gray-400">Teste o sistema oficial de dados de Lua Nova.</p>
+        
+        <div class="text-left space-y-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-1">Nível de Atributo:</label>
+            <select id="sim-atributo" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm">
+              <option value="0">Atributo 0 (Inépcia - Pega o MENOR)</option>
+              <option value="1" selected>Atributo 1 (+1D4 Vantagem)</option>
+              <option value="2">Atributo 2 (+1D6 Vantagem)</option>
+              <option value="3">Atributo 3 (+1D8 Vantagem)</option>
+              <option value="4">Atributo 4 (+1D10 Vantagem)</option>
+              <option value="5">Atributo 5 (+1D12 Vantagem)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-1">Dificuldade Alvo (DT):</label>
+            <select id="sim-dt" class="w-full bg-ash-900 border border-gray-700 text-white rounded p-2 text-sm">
+              <option value="10">Rotineira (DT 10)</option>
+              <option value="13" selected>Moderada (DT 13)</option>
+              <option value="15">Difícil (DT 15)</option>
+              <option value="18">Extrema (DT 18)</option>
+              <option value="22">Heróica (DT 22)</option>
+              <option value="25">Lendária (DT 25)</option>
+            </select>
+          </div>
+        </div>
 
-    <!-- CALENDÁRIO -->
-    <section id="sec-calendario" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">🗓️ Calendário Unificado</h2>
-        <p class="text-gray-300 text-sm">O mundo funciona em ciclos de 7 meses de 50 dias cada.</p>
-      </div>
-    </section>
-
-    <!-- REGRAS -->
-    <section id="sec-regras" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">🎲 Regras Oficiais</h2>
-        <p class="text-gray-300 text-sm">Testes rolam 3D20 com bônus de Vantagem conforme o nível do atributo.</p>
-      </div>
-    </section>
-
-    <!-- PERSONAGEM -->
-    <section id="sec-personagem" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">👤 Raças e Patronos</h2>
-        <p class="text-gray-300 text-sm">Escolha entre Humanos, Anões e Elfos e consagre-se a um Deus Patrono.</p>
-      </div>
-    </section>
-
-    <!-- VOCAÇÕES -->
-    <section id="sec-vocoes" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">⚔️ Vocações da Guilda</h2>
-        <p class="text-gray-300 text-sm">12 Caminhos táticos para especializar seu agente.</p>
-      </div>
-    </section>
-
-    <!-- BESTIÁRIO -->
-    <section id="sec-bestiario" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-4">🐉 Bestiário e Ameaças</h2>
-        <p class="text-gray-300 text-sm">Criaturas mutantes, desalmados e perigos dos ermos.</p>
-      </div>
-    </section>
-
-    <!-- SIMULADOR -->
-    <section id="sec-simulador" class="chapter-section hidden space-y-6">
-      <div class="parchment-card rounded-xl p-6 max-w-2xl mx-auto text-center">
-        <h2 class="text-2xl font-serif font-bold text-gold-400 mb-2">🎰 Simulador 3D20</h2>
-        <button onclick="roll3D20()" class="w-full bg-rust-600 hover:bg-rust-800 text-white font-bold py-3 rounded-lg shadow-lg text-base transition mt-4">
-          🎲 Rolar 3D20
+        <button onclick="roll3D20()" class="w-full bg-rust-600 hover:bg-rust-800 text-white font-bold py-3 rounded-lg shadow-lg text-sm transition">
+          🎲 Rolar 3D20 + Vantagem
         </button>
-        <div id="sim-result" class="mt-6 hidden bg-ash-900 p-4 rounded-lg border border-gold-500/30">
-          <div id="sim-d20-list" class="flex justify-center gap-3 text-xl font-bold font-serif mb-3"></div>
-          <div class="text-2xl font-bold font-serif my-2" id="sim-total"></div>
+
+        <div id="sim-result" class="hidden bg-ash-900 p-4 rounded-lg border border-gold-500/30 space-y-2">
+          <div class="text-xs text-gray-400">Dados Sorteados no 3D20:</div>
+          <div id="sim-d20-list" class="flex justify-center gap-3 text-lg font-bold font-serif"></div>
+          <div id="sim-bonus-info" class="text-xs text-gold-400"></div>
+          <div class="text-xl font-bold font-serif" id="sim-total"></div>
           <div id="sim-outcome" class="text-sm font-bold"></div>
         </div>
       </div>
@@ -226,29 +225,29 @@
 
   </main>
 
-  <!-- MODAL DE ITENS (BANCO DE DADOS) -->
+  <!-- MODAL DE ITENS (BANCO DE DADOS MODULAR) -->
   <div id="itemModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
     <div class="bg-ash-900 border border-gold-500/40 rounded-xl max-w-md w-full p-6 space-y-4">
       <h3 class="text-lg font-bold text-gold-400">Banco de Dados de Itens</h3>
       <div>
-        <label class="block text-xs font-bold text-gray-300 mb-1">Selecione um item do compêndio:</label>
+        <label class="block text-xs font-bold text-gray-300 mb-1">Selecione um item:</label>
         <select id="compendium-item-select" class="w-full bg-ash-800 border border-gray-700 text-white rounded p-2 text-sm">
           <option value="">-- Carregando banco de dados --</option>
         </select>
       </div>
       <div class="flex justify-end gap-2 pt-2">
         <button onclick="closeItemModal()" class="bg-gray-700 text-white px-4 py-2 rounded text-xs font-bold">Cancelar</button>
-        <button onclick="confirmAddItem()" class="bg-gold-500 text-ash-950 px-4 py-2 rounded text-xs font-bold">Adicionar à Bolsa</button>
+        <button onclick="confirmAddItem()" class="bg-gold-500 text-ash-950 px-4 py-2 rounded text-xs font-bold">Adicionar</button>
       </div>
     </div>
   </div>
 
   <footer class="bg-ash-950 border-t border-gray-800 py-6 text-center text-xs text-gray-500">
-    <div class="max-w-7xl mx-auto px-4"><p>🌑 <strong>Lua Nova: Cinzas e Ferrugem RPG</strong> • Compêndio 3.2</p></div>
+    <div class="max-w-6xl mx-auto px-4"><p>🌑 <strong>Lua Nova: Cinzas e Ferrugem RPG</strong></p></div>
   </footer>
 
   <script>
-    // 🗄️ BANCO DE DADOS CENTRALIZADO DE ITENS (Fácil de atualizar futuramente)
+    // 🗄️ BANCO DE DADOS MODULAR DE ITENS (Fácil de atualizar futuramente)
     const itemDatabase = [
       { name: "Poção de Vida Menor", desc: "Cura 1D6+2 PV" },
       { name: "Pederneira e Aço (Ferro Puro)", desc: "Inquebrável, acende fogo na chuva" },
@@ -279,16 +278,11 @@
       updatePatronBlessing(); 
       calculateStats(); 
       loadCharacter(); 
-    }
-
-    function populateItemDatabase() {
-      const select = document.getElementById('compendium-item-select');
-      select.innerHTML = '<option value="">-- Selecionar item do Compêndio --</option>' + 
-        itemDatabase.map(item => `<option value="${item.name}: ${item.desc}">${item.name} (${item.desc})</option>`).join('');
+      switchTab('ficha'); // Abre direto na Ficha
     }
 
     function switchTab(tabId) {
-      document.querySelectorAll('.chapter-section').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.app-section').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.nav-tab').forEach(btn => {
         btn.classList.remove('text-gold-400', 'bg-ash-800', 'border', 'border-gold-500/40');
         btn.classList.add('text-gray-400');
@@ -298,6 +292,12 @@
       activeBtn.classList.add('text-gold-400', 'bg-ash-800', 'border', 'border-gold-500/40');
       activeBtn.classList.remove('text-gray-400');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function populateItemDatabase() {
+      const select = document.getElementById('compendium-item-select');
+      select.innerHTML = '<option value="">-- Selecionar item do Compêndio --</option>' + 
+        itemDatabase.map(item => `<option value="${item.name}: ${item.desc}">${item.name} (${item.desc})</option>`).join('');
     }
 
     function updatePatronBlessing() {
@@ -360,7 +360,7 @@
         inventory
       };
       localStorage.setItem('luanova_char', JSON.stringify(charData));
-      alert('Ficha salva!');
+      alert('Ficha salva com sucesso!');
     }
 
     function loadCharacter() {
@@ -384,19 +384,44 @@
     }
 
     function resetCharacter() { 
-      if(confirm('Zerar a ficha?')) { 
+      if(confirm('Deseja zerar a ficha?')) { 
         localStorage.removeItem('luanova_char'); 
         location.reload(); 
       } 
     }
 
     function roll3D20() {
+      const attr = parseInt(document.getElementById('sim-atributo').value);
+      const dt = parseInt(document.getElementById('sim-dt').value);
       const d20s = [Math.floor(Math.random()*20)+1, Math.floor(Math.random()*20)+1, Math.floor(Math.random()*20)+1];
-      const total = Math.max(...d20s) + 2;
+      const ones = d20s.filter(x => x === 1).length;
+      let baseD20 = attr === 0 ? Math.min(...d20s) : Math.max(...d20s);
+      let bonusVal = 0, bonusText = "";
+
+      if(attr === 1) { bonusVal = Math.floor(Math.random()*4)+1; bonusText = "1D4"; }
+      else if(attr === 2) { bonusVal = Math.floor(Math.random()*6)+1; bonusText = "1D6"; }
+      else if(attr === 3) { bonusVal = Math.floor(Math.random()*8)+1; bonusText = "1D8"; }
+      else if(attr === 4) { bonusVal = Math.floor(Math.random()*10)+1; bonusText = "1D10"; }
+      else if(attr >= 5) { bonusVal = Math.floor(Math.random()*12)+1; bonusText = "1D12"; }
+
+      const total = baseD20 + bonusVal;
+
       document.getElementById('sim-result').classList.remove('hidden');
-      document.getElementById('sim-d20-list').innerHTML = d20s.map(d => `<span class="bg-ash-800 px-3 py-1 rounded border border-gray-700 text-white">${d}</span>`).join('');
+      document.getElementById('sim-d20-list').innerHTML = d20s.map(d => `<span class="bg-ash-800 px-3 py-1 rounded border ${d===1?'border-red-500 text-red-400':'border-gray-700 text-white'}">${d}</span>`).join('');
+      document.getElementById('sim-bonus-info').innerText = attr === 0 ? "Inépcia Absoluta (menor dado)" : `Maior D20: ${baseD20} | Vantagem (${bonusText}): +${bonusVal}`;
       document.getElementById('sim-total').innerText = `TOTAL = ${total}`;
-      document.getElementById('sim-outcome').innerText = `Rolagem efetuada com sucesso!`;
+      
+      const outcome = document.getElementById('sim-outcome');
+      if(ones >= 3) {
+        outcome.className = "text-sm font-bold text-red-500";
+        outcome.innerText = "⚠️ FALHA CRÍTICA! (Três 1s no Caos Múltiplo)";
+      } else if(total >= dt) {
+        outcome.className = "text-sm font-bold text-emerald-400";
+        outcome.innerText = `✅ SUCESSO! (Alcançou a DT ${dt})`;
+      } else {
+        outcome.className = "text-sm font-bold text-rust-400";
+        outcome.innerText = `❌ FALHA! (Abaixo da DT ${dt})`;
+      }
     }
 
     window.onload = initApp;
